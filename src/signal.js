@@ -16,6 +16,10 @@ function createSignal(chain) {
           path: typeof path === 'string' ? path : null,
           payload: typeof path === 'string' ? outputPayload : path
         }
+        
+        if(path === 'error') {
+          reject(outputPayload);
+        }
 
         if (action.isAsync) {
           resolve(result)
